@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" ng-app="weatherApp">
+    <head>
+        <title>Weather App</title>
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.css"/>
+        <link rel="stylesheet" href="app/css/styles.css"/>
+        <script src="app/lib/angular-1.2.32/angular.js"></script>
+        <script src="app/lib/angular-1.2.32/angular-route.js"></script>
+        <script src="app/controllers/weatherCtrl.js"></script> 
+        <script src="app/services/weatherService.js"></script>
+        <script src="app/lib/angular-1.2.32/angular-resource.js"></script>
+        <script src="app/lib/iso-3166-country-codes-angular/iso-3166-country-codes-angular.js"></script>
+        <script src="app/lib/angular-1.2.32/angularjs-geolocation.min.js"></script>
+        <script src="app/app.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+            <div class="collapse navbar-collapse navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <li class=""><a href="#/current">Current</a></li>
+                    <li class=""><a href="#/forecast">Forecast</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+            <div ng-view></div>
+        </div>
+    </body>
+</html>
