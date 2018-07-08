@@ -2,6 +2,7 @@ angular.module('weatherApp', [
     'ngRoute',
     'weatherApp.controllers',
     'weatherApp.services',
+    'weatherApp.directives',
     "iso-3166-country-codes"
 
 ]).

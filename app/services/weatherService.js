@@ -2,17 +2,19 @@
 
 angular.module('weatherApp.services', ['ngResource'])
 
+  .value('savedLocations', ['Kansas City', 'St. Louis', 'Memphis', 'Orlando', 'San Francisco' ])
+
   .factory('weatherMap', function($resource) {
 
     var apiKey = '760d0a56967305448b665a3332e8ad2a';
     var apiBaseUrl = 'http://api.openweathermap.org/data/2.5/';
 
-    return $resource(apiBaseUrl + ':path/:subPath?q=:location',
+    return $resource(apiBaseUrl + ':path?q=:location',
       {
         APPID: apiKey,
         mode: 'json',
         callback: 'JSON_CALLBACK',
-        units: 'metric',
+        units: 'imperial',
         lang: 'en'
       },
       {
@@ -30,18 +32,6 @@ angular.module('weatherApp.services', ['ngResource'])
           method: 'JSONP',
           params: {
             path: 'forecast'
-          },
-          isArray: false,
-          headers: {
-            'x-api-key': apiKey
-          }
-        },
-        query5DayForecast: {
-          method: 'JSONP',
-          params: {
-            path: 'forecast',
-            subPath: 'daily',
-            cnt: 5
           },
           isArray: false,
           headers: {

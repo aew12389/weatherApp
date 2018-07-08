@@ -1,0 +1,24 @@
+
+<div class="weather panel panel-primary">
+        <div class="panel-heading">{{parseDate(useDayForecast.dt) | date:'fullDate'}}</div>
+        <div class="panel-body">
+            <div>
+                <p class="lead">
+                    <img ng-src="{{getIconImageUrl(useDayForecast.weather[0].icon)}}" />
+                    {{useDayForecast.main.temp | number:1}}&#176;F {{useDayForecast.weather[0].main}}
+                </p>
+                <p>
+                    <span>{{useDayForecast.weather[0].description}}</span>
+                    <span>High: <span>{{useDayForecast.main.temp_max}}&#176;F</span></span>
+                    <span>Low: <span>{{useDayForecast.main.temp_min}}&#176;F</span></span>
+                    <span>Pressure: <span>{{useDayForecast.main.pressure}} hPa</span>s</span>
+                    <span>Humidity: <span>{{useDayForecast.main.humidity}}%</span></span>
+                </p>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <small>
+                Wind: {{useDayForecast.wind.speed}} mph
+            </small>
+        </div>
+    </div>

@@ -11,7 +11,7 @@
                                 <label class="sr-only" for="location">City</label>
                                 <input ng-model="location" type="text" class="form-control" id="location" placeholder="City">
                             </span>
-                            <button ng-click="getForecastByLocation(location)" type="submit" class="btn btn-primary">Search!</button>
+                            <button ng-click="getWeatherByLocation(location)" type="submit" class="btn btn-primary">Search!</button>
                             <span ng-show="message" class="alert"><span class="glyphicon glyphicon-arrow-left">&nbsp;</span>{{message}}</span>
                         </form>
                     </div>
@@ -23,15 +23,15 @@
                 <div class="col-xs-12">
                     <div class="">
                         <h3>
-                            <span>Current weater for:</span>
-                            {{forecast.city.name}}, {{forecast.city.country | isoCountry}}
+                            <span>Current weather for:</span>
+                            {{weather.name}}, {{weather.sys.country | isoCountry}}
                         </h3>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12">
-                    <div weather-panel="forecast" show-entry="forecast.list[0]"></div>
+                        <div weather-panel="weather" show-entry="weather"></div>
                 </div>
             </div>
         </div>
