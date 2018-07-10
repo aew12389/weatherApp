@@ -3,17 +3,29 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div>
-                        <form class="form-inline" role="form">
-                            <span class="btn-group" >
-                                <button ng-repeat="item in savedLocations" ng-click="setLocation(item)" type="submit" class="btn btn-default">{{item}}</button>
-                            </span>
-                            <span class="form-group {{hasLocation}}">
-                                <label class="sr-only" for="location">City</label>
-                                <input ng-model="location" type="text" class="form-control" id="location" placeholder="City">
-                            </span>
-                            <button ng-click="getForecastByLocation(location)" type="submit" class="btn btn-primary">Search!</button>
-                            <span ng-show="message" class="alert"><span class="glyphicon glyphicon-arrow-left">&nbsp;</span>{{message}}</span>
-                        </form>
+                            <form class="form-inline" role="form">
+                                    <div class="col-xs-8">
+                                        <p>Your Saved Locations</p>
+                                        <span class="btn-group" >
+                                            
+                                            <span ng-repeat="item in savedLocations"  class="btn btn-default">
+                                                <span ng-click="setLocation(item.location)">{{item.location}}</span>
+                                                <span ng-click="removeLocation(item.location)">x</span>    
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <!-- <div class="col-xs-4" style="float:right">
+                                        <p>Search new City</p>
+                                        <span class="form-group {{hasLocation}}">
+                                            <label class="sr-only" for="location">City</label>
+                                            <input ng-model="location" type="text" class="form-control" id="location" placeholder="City">
+                                        </span>
+                                        <button ng-click="getForecastByLocation(location)" type="submit" class="btn btn-primary">Search!</button>
+                                        <p ng-show="message" class="alert">{{message}}<span class="glyphicon glyphicon-arrow-up">&nbsp;</span></p>
+        
+                                    </div> -->
+                                   
+                                </form>
                     </div>
                 </div>
             </div>
@@ -23,14 +35,17 @@
                 <div class="col-xs-12">
                     <div class="">
                         <h3>
-                            <span>5 day forcast for:</span>
+                            <span>Forecast for:</span>
                             {{forecast.city.name }}, {{forecast.city.state | isoCountry}}, {{forecast.city.country | isoCountry}}
                         </h3>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-4">
+                <div class="col-xs-4" ng-repeat="forecast in forecast.list">
+                    <div forecast-panel="forecast" show-entry="forecast"></div>
+                </div>
+                <!-- <div class="col-xs-4">
                     <div forecast-panel="forecast" show-entry="forecast.list[0]"></div>
                 </div>
                  <div class="col-xs-4">
@@ -44,7 +59,7 @@
                 </div>
                 <div class="col-xs-4">
                         <div forecast-panel="forecast" show-entry="forecast.list[4]"></div>
-                    </div>
+                </div> -->
             </div>
         </div>
     </div>

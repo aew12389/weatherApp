@@ -3,7 +3,7 @@ angular.module('weatherApp', [
     'weatherApp.controllers',
     'weatherApp.services',
     'weatherApp.directives',
-    "iso-3166-country-codes"
+    "iso-3166-country-codes",
 
 ]).
 config(['$routeProvider', function($routeProvider){

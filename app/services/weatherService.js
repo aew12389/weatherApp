@@ -2,7 +2,7 @@
 
 angular.module('weatherApp.services', ['ngResource'])
 
-  .value('savedLocations', ['Kansas City', 'St. Louis', 'Memphis', 'Orlando', 'San Francisco' ])
+  .value('savedLocations', [ {'location': 'St. Louis'}])
 
   .factory('weatherMap', function($resource) {
 
