@@ -38,7 +38,7 @@
                             <span>Current weather for:</span>
                             {{weather.name}}, {{weather.sys.country | isoCountry}}
                         </h3>
-                        <span><a href="#/forecast">See forecast</a></span>
+                        <span><a ng-href="#/forecast/{{weather.name}}">See forecast for {{weather.name}}</a></span>
                     </div>
                 </div>
             </div>

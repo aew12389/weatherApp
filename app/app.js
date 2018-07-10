@@ -7,7 +7,7 @@ angular.module('weatherApp', [
 
 ]).
 config(['$routeProvider', function($routeProvider){
-    $routeProvider.when('/forecast', {templateUrl:'app/views/forecast.html',controller: 'ForecastCtrl'});
+    $routeProvider.when('/forecast/:location', {templateUrl:'app/views/forecast.html',controller: 'ForecastCtrl'});
     $routeProvider.when('/current', {templateUrl:'app/views/current.html', controller: 'CurrentCtrl'});
     $routeProvider.otherwise({redirectTo: '/current'});
 }]);

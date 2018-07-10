@@ -1,20 +1,26 @@
 angular.module('weatherApp.controllers', [])
 
   .controller('ForecastCtrl',
-    ['$scope','weatherMap','savedLocations','ISO3166',
-      function($scope,weatherMap,savedLocations,ISO3166) {
+    ['$scope','weatherMap','savedLocations','ISO3166', '$routeParams',
+      function($scope,weatherMap,savedLocations,ISO3166, $routeParams) {
 
       $scope.message = '';
       $scope.hasLocation = '';
 
       $scope.savedLocations = savedLocations;
-
-      $scope.forecast = weatherMap.queryForecast({
-        location: savedLocations[ 0 ].location
-      });
+      
+      if($routeParams.location){
+        $scope.forecast = weatherMap.queryForecast({
+          location: $routeParams.location
+        });
+      }else{
+        $scope.forecast = weatherMap.queryForecast({
+          location: savedLocations[0].location
+        });
+      }
+      
 
       $scope.getForecastByLocation = function() {
- 
 
         if ($scope.location == '' || $scope.location == undefined) {
           $scope.hasLocation = 'warning';
